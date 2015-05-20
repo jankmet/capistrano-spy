@@ -1,0 +1,38 @@
+namespace :show do
+  desc "list all yml config files"
+  task :yml do
+    on roles(:app) do
+      with_debug_verbosity do
+        execute "ls #{shared_path}/config/*.yml"
+      end
+    end
+  end
+
+  desc "show shared config yml file"
+  task :config, [:file] do |_task, args|
+    on roles(:app) do
+      with_debug_verbosity do
+        execute "cat #{shared_path}/config/#{args.file}.yml"
+      end
+    end
+  end
+
+  desc "show running processes of service"
+  task :running, [:service] do |_task, args|
+    on roles(:app) do
+      with_debug_verbosity do
+        execute "ps aux | grep #{args.service}"
+      end
+    end
+  end
+end
+
+def with_debug_verbosity
+  output_verbosity = SSHKit.config.output_verbosity
+  begin
+    SSHKit.config.output_verbosity = Logger::DEBUG
+    yield
+  ensure
+    SSHKit.config.output_verbosity = output_verbosity
+  end
+end

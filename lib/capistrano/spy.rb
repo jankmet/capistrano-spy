@@ -1,0 +1,1 @@
+load File.expand_path('../spy/tasks/spy.cap', __FILE__)
