@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/jankmet/capistrano-spy/badges/gpa.svg)](https://codeclimate.com/github/jankmet/capistrano-spy)
+
 # capistrano-spy
 
 viewing remote configurations and running services for capistrano
