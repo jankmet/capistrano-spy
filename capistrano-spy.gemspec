@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["jan.kmet@gmail.com"]
   spec.description   = %q{viewing remote configurations and running services for capistrano}
   spec.summary       = %q{viewing remote configurations and running services for capistrano}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/jankmet/capistrano-spy"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
