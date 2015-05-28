@@ -25,6 +25,15 @@ namespace :show do
       end
     end
   end
+
+  desc "show memory info (MemTotal, MemFree, Cached, SwapCached, SwapTotal, SwapFree)"
+  task :mem do
+    on roles(:app) do
+      with_debug_verbosity do
+        execute "egrep 'Mem|Cache|Swap' /proc/meminfo"
+      end
+    end
+  end
 end
 
 def with_debug_verbosity
