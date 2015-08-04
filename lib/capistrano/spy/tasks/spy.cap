@@ -36,6 +36,17 @@ namespace :show do
   end
 end
 
+namespace :search do
+  desc "search in specific log file for occurrences of term"
+  task :log, [:file, :term] do |_task, args|
+    on roles(:app) do
+      with_debug_verbosity do
+        execute "cat #{shared_path}/log/#{args.file}.log | grep --color  #{args.term} -A 10 -B 5 "
+      end
+    end
+  end
+end
+
 def with_debug_verbosity
   output_verbosity = SSHKit.config.output_verbosity
   begin
