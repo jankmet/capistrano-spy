@@ -34,9 +34,7 @@ namespace :show do
       end
     end
   end
-end
 
-namespace :search do
   desc "search in specific log file for occurrences of term"
   task :log, [:file, :term] do |_task, args|
     on roles(:app) do
