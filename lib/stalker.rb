@@ -1,1 +1,0 @@
-load File.expand_path('../stalker/tasks/stalker.cap', __FILE__)
